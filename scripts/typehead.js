@@ -7,15 +7,18 @@ signatures.on("child_added", function(snapshot) {
     var guestNameInRightForm = guestNameInWrongForm.toLowerCase();
 
     if (guestNames.indexOf(guestNameInRightForm) == -1) {
-        guestNames.push(guestNameInRightForm);
+        console.log(guest.signed);
+        if (guest.signed == "yes") {
+            guestNames.push(guestNameInRightForm);
+        }
     };
 });
-
 var getInfo = function(a) {
     var guestSearched = a.toString();
     
     signatures.on("child_added", function(snapshot) {
         person = snapshot.val();
+
         if (person.name.toLowerCase() == guestSearched) {
             $("#message").html("<h3>" + guestSearched + " signed the user agreement on: </h3>" + "<blockquote>" + person.date + "</blockquote>");
             $("h3:last").addClass("text-center");
