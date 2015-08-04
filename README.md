@@ -1,7 +1,7 @@
 #Electronic Signature Checker
 
 ## Description
-A fuzzy and autocompleted form that parses through the database of guests that signed the user agreement to stay with Inncubator
+A fuzzy and autocompleted search that parses through the database of guests that signed the user agreement to stay with Inncubator
 
 ## Technology Used
 1. Twitter's Bootstrap

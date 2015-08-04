@@ -4,9 +4,11 @@ var guestNames = [];
 signatures.on("child_added", function(snapshot) {
     var guest = snapshot.val();
     var guestNameInWrongForm = guest.name;
-    var guestNameInRightForm = guestNameInWrongForm.split(",").reverse().join(" ");
-    //guestNames.push(guestNameInRightForm);
-    guestNames.push(guestNameInWrongForm);
+    var guestNameInRightForm = guestNameInWrongForm.toLowerCase();
+
+    if (guestNames.indexOf(guestNameInRightForm) == -1) {
+        guestNames.push(guestNameInRightForm);
+    };
 });
 
 var getInfo = function(a) {
@@ -14,8 +16,8 @@ var getInfo = function(a) {
     
     signatures.on("child_added", function(snapshot) {
         person = snapshot.val();
-        if (person.name == guestSearched) {
-            $("#message").html("<h3>" + guestSearched.split(",").reverse().join(" ") + " signed the user agreement on: </h3>" + "<blockquote>" + person.date + "</blockquote>");
+        if (person.name.toLowerCase() == guestSearched) {
+            $("#message").html("<h3>" + guestSearched + " signed the user agreement on: </h3>" + "<blockquote>" + person.date + "</blockquote>");
             $("h3:last").addClass("text-center");
             $("blockquote:last").addClass("text-center");
         };
