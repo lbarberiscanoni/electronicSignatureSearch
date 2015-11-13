@@ -20,9 +20,9 @@ var getInfo = function(a) {
         person = snapshot.val();
 
         if (person.name.toLowerCase() == guestSearched) {
-            $("#message").html("<h3>" + guestSearched + " signed the user agreement on: </h3>" + "<blockquote>" + person.date + "</blockquote>");
-            $("h3:last").addClass("text-center");
-            $("blockquote:last").addClass("text-center");
+            $("#message").html("<h3>" + guestSearched + " signed the user agreement on: </h3>" + "<blockquote>" + person.date + "</blockquote><h3>TIMESTAMP OF THE SIGNATURE</h3><blockquote>" + person.timestamp + "</blockquote>");
+            $("h3").addClass("text-center");
+            $("blockquote").addClass("text-center");
         };
     });
 };
